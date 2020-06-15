@@ -28,7 +28,7 @@
 
 var injectScript = document.createElement('script');
 // Use textContent instead of src to run inject() synchronously
-injectScript.textContent = inject.toString() + "inject();";
+injectScript.textContent = "(function(){" + inject.toString() + "inject();})();";
 injectScript.onload = function() {
   // Remove <script> node after injectScript runs.
   this.parentNode.removeChild(this);
